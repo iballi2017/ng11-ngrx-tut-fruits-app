@@ -1,0 +1,76 @@
+<section class="container">
+    <h1 class="text-center display-3">Organic Fruit Place</h1>
+    <article>
+        <!-- text source: https://stylesatlife.com/articles/types-of-fruits/ -->
+        <p>Fruits are one of nature’s bountiful gifts to mankind. They are juicy, delicious and filled with nutritional
+            goodness to help us enjoy a healthy and happy life. The interesting part about this food group? There are
+            many types of fruits that come in a variety of shapes, sizes and flavors to tickle our taste buds and
+            improve our physical and psychological well being.</p>
+        <p>In this article, we shall delve deep into the subject of the different kinds of fruits, their properties and
+            25 most popularly consumed fruits across the world. Before you get ready to sink in your teeth into these
+            delicious treats, you must read these interesting facts to appreciate these humble fruits even more!
+        </p>
+    </article>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <section>
+                <div class="card mb-4 bg-light">
+                    <div class="card-body">
+                        <h4 class="text-center display-4">Add a fruit</h4>
+                        <form [formGroup]='fruitForm' (ngSubmit)="handleAddFruit()">
+                            <div class="form-group">
+                                <label for="fruitName">Fruit Name</label>
+                                <input type="text" class="form-control" id="fruitName" aria-describedby="emailHelp"
+                                    placeholder="Enter fruit name" formControlName="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fruitPrice">Price</label>
+                                <input type="number" class="form-control" id="fruitPrice"
+                                    placeholder="Enter fruit price" formControlName="price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fruitCategory">Category</label>
+                                <select class="custom-select" formControlName="category" required>
+                                    <option selected id="fruitCategory">Select the fruit category</option>
+                                    <option value="{{category.value}}" *ngFor="let category of fruitCategories">
+                                        {{category.name}}</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add Fruit</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-12 col-md-7">
+            <section>
+                <div class="alert alert-info" *ngIf="!fruits?.length">
+                    <p class="my-0 text-center">
+                        List is empty!
+                    </p>
+                </div>
+                <div class="table-responsive" *ngIf="fruits?.length">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let fruit of fruits">
+                                <th scope="row">{{fruit.name}}</th>
+                                <td>{{fruit.category}}</td>
+                                <td>{{fruit.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "fruits":[
+    {
+      "id": "1",
+      "name": "apples",
+      "category": "Simple Fruits",
+      "price": 2.34
+    },{
+      "id": "2",
+      "name": "apples",
+      "category": "Simple Fruits",
+      "price": 1.43
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
